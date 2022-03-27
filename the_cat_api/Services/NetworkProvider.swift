@@ -21,6 +21,9 @@ final class NetworkProvider: CategoriesService, ImageService {
 
     static let shared = NetworkProvider()
 
+    // cache holder
+    let cache = NSCache<NSString, UIImage>()
+
     private let apiKey = "98b10711-58bd-4a27-a3e3-ff975e8869fe"
     private let baseUrl = "https://api.thecatapi.com/v1/"
 
@@ -91,6 +94,13 @@ final class NetworkProvider: CategoriesService, ImageService {
 
     func downloadImage(from urlString: String, complition: @escaping (UIImage?) -> Void) {
 
+        let cacheKey = NSString(string: urlString)
+
+        if let image = cache.object(forKey: cacheKey) {
+            complition(image)
+            return
+        }
+
         guard let url = URL(string: urlString) else {
             complition(nil)
             return
@@ -105,6 +115,7 @@ final class NetworkProvider: CategoriesService, ImageService {
                 complition(nil)
                 return
             }
+            self.cache.setObject(image, forKey: cacheKey)
             complition(image)
         }
         task.resume()

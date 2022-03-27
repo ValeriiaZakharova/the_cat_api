@@ -88,6 +88,6 @@ private extension CategoryCell {
     }
 
     func setupContent() {
-        arrowImageView.image = UIImage(named: "arrow")
+        arrowImageView.image = Images.arrow
     }
 }

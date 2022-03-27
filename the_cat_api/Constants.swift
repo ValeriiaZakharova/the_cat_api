@@ -5,8 +5,12 @@
 //  Created by Valeriia Zakharova on 26.03.2022.
 //
 
-import Foundation
+import UIKit
 
 enum Localization {
     static let categoriesTitle = "CATEGORIES"
+}
+
+enum Images {
+    static let arrow = UIImage(named: "arrow")
 }

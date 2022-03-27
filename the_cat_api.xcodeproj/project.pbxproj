@@ -21,7 +21,7 @@
 		CF72D9F327EE468D00F25170 /* CatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D9F227EE468D00F25170 /* CatCell.swift */; };
 		CF72D9F627EE46F700F25170 /* CatImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D9F527EE46F700F25170 /* CatImageView.swift */; };
 		CFAB832A27EFA94C0012907F /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB832927EFA94C0012907F /* ServiceLocator.swift */; };
-		CFAB832C27EFAAD00012907F /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB832B27EFAAD00012907F /* Localization.swift */; };
+		CFAB832C27EFAAD00012907F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB832B27EFAAD00012907F /* Constants.swift */; };
 		CFAB833227EFB9CE0012907F /* UIViewController+spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB833127EFB9CE0012907F /* UIViewController+spinner.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,7 @@
 		CF72D9F227EE468D00F25170 /* CatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCell.swift; sourceTree = "<group>"; };
 		CF72D9F527EE46F700F25170 /* CatImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageView.swift; sourceTree = "<group>"; };
 		CFAB832927EFA94C0012907F /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
-		CFAB832B27EFAAD00012907F /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		CFAB832B27EFAAD00012907F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFAB833127EFB9CE0012907F /* UIViewController+spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+spinner.swift"; sourceTree = "<group>"; };
 		D3FEEE684FCEBCF3BE2001B1 /* Pods-the_cat_api.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-the_cat_api.release.xcconfig"; path = "Target Support Files/Pods-the_cat_api/Pods-the_cat_api.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +108,7 @@
 				CF72D88127ECE88600F25170 /* Assets.xcassets */,
 				CF72D88327ECE88600F25170 /* LaunchScreen.storyboard */,
 				CF72D88627ECE88600F25170 /* Info.plist */,
-				CFAB832B27EFAAD00012907F /* Localization.swift */,
+				CFAB832B27EFAAD00012907F /* Constants.swift */,
 			);
 			path = the_cat_api;
 			sourceTree = "<group>";
@@ -290,7 +290,7 @@
 			files = (
 				CF72D87D27ECE88400F25170 /* CategoriesListViewController.swift in Sources */,
 				CF72D89127EDD14D00F25170 /* Cats.swift in Sources */,
-				CFAB832C27EFAAD00012907F /* Localization.swift in Sources */,
+				CFAB832C27EFAAD00012907F /* Constants.swift in Sources */,
 				CF72D87927ECE88400F25170 /* AppDelegate.swift in Sources */,
 				CFAB832A27EFA94C0012907F /* ServiceLocator.swift in Sources */,
 				CF72D9F627EE46F700F25170 /* CatImageView.swift in Sources */,
