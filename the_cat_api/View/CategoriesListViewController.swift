@@ -88,10 +88,9 @@ private extension CategoriesListViewController {
         let label = UILabel()
         label.text = title
         label.font = .boldSystemFont(ofSize: 16)
-        navigationItem.titleView = label
 
-        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backBarButton
+        navigationItem.titleView = label
+        navigationItem.backButtonTitle = ""
     }
 }
 
@@ -102,8 +101,12 @@ extension CategoriesListViewController: UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseID) as! CategoryCell
-        cell.configure(model: categories[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseID) as? CategoryCell else {
+            assertionFailure("Unexpected cell type")
+            return .init()
+        }
+
+        cell.set(model: categories[indexPath.row])
         return cell
     }
 

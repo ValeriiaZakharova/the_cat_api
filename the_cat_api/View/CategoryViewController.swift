@@ -109,34 +109,11 @@ private extension CategoryViewController {
         label.text = title
         label.font = .boldSystemFont(ofSize: 16)
         navigationItem.titleView = label
+        self.navigationController?.navigationBar.tintColor = .gray
     }
 }
 
 extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        print(#function)
-//        lalalal()
-//    }
-//
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        print(#function)
-//        guard !decelerate else {
-//            print("Decelerate is enabled, ignoring")
-//            return
-//        }
-//        lalalal()
-//    }
-//
-//    func lalalal() {
-//        let offsetY = collectionView.contentOffset.y
-//        let contentHeight = collectionView.contentSize.height
-//        let height = collectionView.frame.size.height
-//
-//        if offsetY > contentHeight - height {
-//            print("Start FETCHING")
-//        }
-//    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cats.count

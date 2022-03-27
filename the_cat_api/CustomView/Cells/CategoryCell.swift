@@ -35,7 +35,7 @@ class CategoryCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(model: Category) {
+    func set(model: Category) {
         titleLabel.text = model.name
     }
 }
