@@ -101,7 +101,7 @@ private extension CategoryViewController {
         collectionView.collectionViewLayout = makeStaticColumnFlowLayout(in: view, columns: 2)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(CatCell.self, forCellWithReuseIdentifier: CatCell.reuseID)
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseID)
     }
 
     func setupNavBar() {
@@ -121,7 +121,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatCell.reuseID, for: indexPath) as? CatCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseID, for: indexPath) as? CategoryCell else {
             assertionFailure("Unexpected cell type")
             return .init()
         }

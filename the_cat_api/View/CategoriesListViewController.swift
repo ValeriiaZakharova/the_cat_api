@@ -81,7 +81,7 @@ private extension CategoriesListViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
 
-        tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reuseID)
+        tableView.register(CategoryNameCell.self, forCellReuseIdentifier: CategoryNameCell.reuseID)
     }
 
     func setupNavBar() {
@@ -101,7 +101,7 @@ extension CategoriesListViewController: UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseID) as? CategoryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryNameCell.reuseID) as? CategoryNameCell else {
             assertionFailure("Unexpected cell type")
             return .init()
         }

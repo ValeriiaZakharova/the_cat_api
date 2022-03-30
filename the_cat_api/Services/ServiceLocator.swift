@@ -15,7 +15,7 @@ class ServiceLocator {
     let imageService: ImageService
 
     init() {
-        let networkProvider = NetworkProvider.shared
+        let networkProvider = NetworkProvider()
 
         categoriesService = networkProvider
         imageService = networkProvider

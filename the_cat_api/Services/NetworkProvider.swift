@@ -19,9 +19,6 @@ protocol ImageService {
 
 final class NetworkProvider: CategoriesService, ImageService {
 
-    static let shared = NetworkProvider()
-
-    // cache holder
     let cache = NSCache<NSString, UIImage>()
 
     private let apiKey = "98b10711-58bd-4a27-a3e3-ff975e8869fe"
@@ -52,7 +49,7 @@ final class NetworkProvider: CategoriesService, ImageService {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    completion([], `error`)
+                    completion([], error)
                 }
             }
         }

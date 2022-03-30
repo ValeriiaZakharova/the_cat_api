@@ -16,9 +16,9 @@
 		CF72D88F27EDC84800F25170 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D88E27EDC84800F25170 /* Category.swift */; };
 		CF72D89127EDD14D00F25170 /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D89027EDD14D00F25170 /* Cats.swift */; };
 		CF72D89327EDE9D500F25170 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D89227EDE9D500F25170 /* CategoryViewController.swift */; };
-		CF72D97B27EE248300F25170 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D97A27EE248300F25170 /* CategoryCell.swift */; };
+		CF72D97B27EE248300F25170 /* CategoryNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D97A27EE248300F25170 /* CategoryNameCell.swift */; };
 		CF72D9F127EE418400F25170 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D9F027EE418400F25170 /* NetworkProvider.swift */; };
-		CF72D9F327EE468D00F25170 /* CatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D9F227EE468D00F25170 /* CatCell.swift */; };
+		CF72D9F327EE468D00F25170 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D9F227EE468D00F25170 /* CategoryCell.swift */; };
 		CF72D9F627EE46F700F25170 /* CatImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72D9F527EE46F700F25170 /* CatImageView.swift */; };
 		CFAB832A27EFA94C0012907F /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB832927EFA94C0012907F /* ServiceLocator.swift */; };
 		CFAB832C27EFAAD00012907F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB832B27EFAAD00012907F /* Constants.swift */; };
@@ -38,9 +38,9 @@
 		CF72D88E27EDC84800F25170 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CF72D89027EDD14D00F25170 /* Cats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
 		CF72D89227EDE9D500F25170 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		CF72D97A27EE248300F25170 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		CF72D97A27EE248300F25170 /* CategoryNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNameCell.swift; sourceTree = "<group>"; };
 		CF72D9F027EE418400F25170 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
-		CF72D9F227EE468D00F25170 /* CatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCell.swift; sourceTree = "<group>"; };
+		CF72D9F227EE468D00F25170 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		CF72D9F527EE46F700F25170 /* CatImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageView.swift; sourceTree = "<group>"; };
 		CFAB832927EFA94C0012907F /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		CFAB832B27EFAAD00012907F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		CF72D97927EE244300F25170 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CF72D97A27EE248300F25170 /* CategoryCell.swift */,
-				CF72D9F227EE468D00F25170 /* CatCell.swift */,
+				CF72D97A27EE248300F25170 /* CategoryNameCell.swift */,
+				CF72D9F227EE468D00F25170 /* CategoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -294,11 +294,11 @@
 				CF72D87927ECE88400F25170 /* AppDelegate.swift in Sources */,
 				CFAB832A27EFA94C0012907F /* ServiceLocator.swift in Sources */,
 				CF72D9F627EE46F700F25170 /* CatImageView.swift in Sources */,
-				CF72D97B27EE248300F25170 /* CategoryCell.swift in Sources */,
+				CF72D97B27EE248300F25170 /* CategoryNameCell.swift in Sources */,
 				CF72D87B27ECE88400F25170 /* SceneDelegate.swift in Sources */,
 				CFAB833227EFB9CE0012907F /* UIViewController+spinner.swift in Sources */,
 				CF72D9F127EE418400F25170 /* NetworkProvider.swift in Sources */,
-				CF72D9F327EE468D00F25170 /* CatCell.swift in Sources */,
+				CF72D9F327EE468D00F25170 /* CategoryCell.swift in Sources */,
 				CF72D89327EDE9D500F25170 /* CategoryViewController.swift in Sources */,
 				CF72D88F27EDC84800F25170 /* Category.swift in Sources */,
 			);
