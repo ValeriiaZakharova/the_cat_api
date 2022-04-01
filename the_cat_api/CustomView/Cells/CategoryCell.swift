@@ -1,93 +1,54 @@
 //
-//  CategoryCell.swift
+//  CatCell.swift
 //  the_cat_api
 //
 //  Created by Valeriia Zakharova on 25.03.2022.
 //
 
 import UIKit
-import SnapKit
 
-class CategoryCell: UITableViewCell {
+class CategoryCell: UICollectionViewCell {
 
     static let reuseID = "CategoryCell"
 
-    // MARK: - Private properties
-    private let containerView = UIView()
+    private let catImageView = CatImageView(frame: .zero)
 
-    private let titleLabel = UILabel()
-
-    private let arrowImageView = UIImageView()
-
-    // MARK: - Overriden
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        titleLabel.text = nil
-    }
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
     }
 
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(model: Category) {
-        titleLabel.text = model.name
+    func set(cat: Cats) {
+        catImageView.downloadImage(fromUrl: cat.url)
     }
 }
+
+// MARK: - Private
 
 private extension CategoryCell {
     func setup() {
         setupViewHierarchy()
         setupLayout()
         setupStyle()
-        setupContent()
     }
 
     func setupViewHierarchy() {
-        contentView.addSubview(containerView)
-
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(arrowImageView)
+        contentView.addSubview(catImageView)
     }
 
     func setupLayout() {
-        containerView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.top.bottom.equalToSuperview().inset(4)
-        }
-
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().inset(16)
-        }
-
-        arrowImageView.snp.makeConstraints { make in
-            make.centerY.equalTo(titleLabel.snp.centerY)
-            make.trailing.equalToSuperview().inset(18)
-            make.size.equalTo(14)
+        catImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
 
     func setupStyle() {
         backgroundColor = .white
         contentView.backgroundColor = .white
-
-        containerView.layer.cornerRadius = 10
-        containerView.clipsToBounds = true
-        containerView.layer.borderWidth = 0.5
-        containerView.layer.borderColor = UIColor.gray.cgColor
-
-        titleLabel.textAlignment = .left
-        titleLabel.font = .systemFont(ofSize: 16)
-    }
-
-    func setupContent() {
-        arrowImageView.image = Images.arrow
+        contentMode = .scaleAspectFit
     }
 }

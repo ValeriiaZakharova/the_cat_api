@@ -10,6 +10,8 @@ import UIKit
 protocol CategoriesService {
     func fetchCategories(completion: @escaping ([Category], Error?) -> Void)
 
+    func fetchBreeds(completion: @escaping ([Breed], Error?) -> Void)
+
     func fetchCategory(category_ids: Category, completion: @escaping ([Cats], Error?) -> Void)
 }
 
@@ -19,9 +21,6 @@ protocol ImageService {
 
 final class NetworkProvider: CategoriesService, ImageService {
 
-    static let shared = NetworkProvider()
-
-    // cache holder
     let cache = NSCache<NSString, UIImage>()
 
     private let apiKey = "98b10711-58bd-4a27-a3e3-ff975e8869fe"
@@ -52,7 +51,39 @@ final class NetworkProvider: CategoriesService, ImageService {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    completion([], `error`)
+                    completion([], error)
+                }
+            }
+        }
+        .resume()
+    }
+
+    func fetchBreeds(completion: @escaping ([Breed], Error?) -> Void) {
+
+        guard let url = URL(string: "\(baseUrl)breeds?api_key=\(apiKey)") else { return }
+
+        let session = URLSession.shared
+
+        session.dataTask(with: url) { data, response, error in
+            if let response = response {
+                print(response)
+            }
+
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
+                return
+            }
+
+            do {
+                let result = try JSONDecoder().decode([Breed].self, from: data)
+                DispatchQueue.main.async {
+                    completion(result, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion([], error)
                 }
             }
         }
