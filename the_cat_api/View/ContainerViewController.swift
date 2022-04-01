@@ -54,7 +54,7 @@ class ContainerViewController: UIViewController {
     }
 
     @objc func valueChanged(sender: UISegmentedControl) {
-        
+
         switch sender.selectedSegmentIndex {
         case 0:
             remove(asChildViewController: breedsViewController)

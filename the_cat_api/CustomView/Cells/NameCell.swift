@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class CategoryNameCell: UITableViewCell {
+class NameCell: UITableViewCell {
 
-    static let reuseID = "CategoryNameCell"
+    static let reuseID = "NameCell"
 
     // MARK: - Private properties
     private let containerView = UIView()
@@ -34,12 +34,12 @@ class CategoryNameCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(model: Category) {
+    func set(model: NameOwner) {
         titleLabel.text = model.name
     }
 }
 
-private extension CategoryNameCell {
+private extension NameCell {
     func setup() {
         setupViewHierarchy()
         setupLayout()

@@ -11,3 +11,5 @@ struct Category: Decodable {
     let id: Int
     let name: String
 }
+
+extension Category: NameOwner { }
