@@ -23,6 +23,8 @@
 		CFAB832A27EFA94C0012907F /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB832927EFA94C0012907F /* ServiceLocator.swift */; };
 		CFAB832C27EFAAD00012907F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB832B27EFAAD00012907F /* Constants.swift */; };
 		CFAB833227EFB9CE0012907F /* UIViewController+spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB833127EFB9CE0012907F /* UIViewController+spinner.swift */; };
+		CFAB833427F72B600012907F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB833327F72B600012907F /* ContainerViewController.swift */; };
+		CFAB833727F77EC10012907F /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB833627F77EC10012907F /* BreedsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		CFAB832927EFA94C0012907F /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		CFAB832B27EFAAD00012907F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFAB833127EFB9CE0012907F /* UIViewController+spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+spinner.swift"; sourceTree = "<group>"; };
+		CFAB833327F72B600012907F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		CFAB833627F77EC10012907F /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
 		D3FEEE684FCEBCF3BE2001B1 /* Pods-the_cat_api.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-the_cat_api.release.xcconfig"; path = "Target Support Files/Pods-the_cat_api/Pods-the_cat_api.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +158,8 @@
 			children = (
 				CF72D87C27ECE88400F25170 /* CategoriesListViewController.swift */,
 				CF72D89227EDE9D500F25170 /* CategoryViewController.swift */,
+				CFAB833327F72B600012907F /* ContainerViewController.swift */,
+				CFAB833627F77EC10012907F /* BreedsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,8 +301,10 @@
 				CFAB832A27EFA94C0012907F /* ServiceLocator.swift in Sources */,
 				CF72D9F627EE46F700F25170 /* CatImageView.swift in Sources */,
 				CF72D97B27EE248300F25170 /* CategoryNameCell.swift in Sources */,
+				CFAB833427F72B600012907F /* ContainerViewController.swift in Sources */,
 				CF72D87B27ECE88400F25170 /* SceneDelegate.swift in Sources */,
 				CFAB833227EFB9CE0012907F /* UIViewController+spinner.swift in Sources */,
+				CFAB833727F77EC10012907F /* BreedsViewController.swift in Sources */,
 				CF72D9F127EE418400F25170 /* NetworkProvider.swift in Sources */,
 				CF72D9F327EE468D00F25170 /* CategoryCell.swift in Sources */,
 				CF72D89327EDE9D500F25170 /* CategoryViewController.swift in Sources */,
