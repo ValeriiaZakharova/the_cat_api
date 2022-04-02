@@ -9,6 +9,7 @@ import UIKit
 
 enum Localization {
     static let categoriesTitle = "CATEGORIES"
+    static let breedsTitle = "BREEDS"
 }
 
 enum Images {

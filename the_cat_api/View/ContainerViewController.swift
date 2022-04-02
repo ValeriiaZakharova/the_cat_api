@@ -93,12 +93,32 @@ private extension ContainerViewController {
     }
 
     func setupSegmentControl() {
-        segmentControl.insertSegment(withTitle: "Categories", at: 0, animated: false)
-        segmentControl.insertSegment(withTitle: "Breed", at: 1, animated: false)
+        segmentControl.insertSegment(withTitle: Localization.categoriesTitle, at: 0, animated: false)
+        segmentControl.insertSegment(withTitle: Localization.breedsTitle, at: 1, animated: false)
         segmentControl.selectedSegmentIndex = 0
 
-        segmentControl.backgroundColor = .clear
-        segmentControl.tintColor = .clear
+        let font = UIFont.systemFont(ofSize: 20)
+
+        segmentControl.setTitleTextAttributes([
+            NSAttributedString.Key.font : font,
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray
+        ], for: .normal)
+
+        segmentControl.setTitleTextAttributes([
+            NSAttributedString.Key.font : font,
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ], for: .selected)
+
+        //remove background
+        if #available(iOS 13.0, *) {
+          let image = UIImage()
+          let size = CGSize(width: 1, height: segmentControl.intrinsicContentSize.height)
+          UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+          image.draw(in: CGRect(origin: .zero, size: size))
+          let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+            segmentControl.setBackgroundImage(scaledImage, for: .normal, barMetrics: .default)
+            segmentControl.setDividerImage(scaledImage, forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        }
 
         segmentControl.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
     }

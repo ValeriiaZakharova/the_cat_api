@@ -45,7 +45,6 @@ private extension BreedsViewController {
         setupViewHierarchy()
         setupLayout()
         setupStyle()
-        setupContent()
         setupNavBar()
         setupTableView()
     }
@@ -63,10 +62,6 @@ private extension BreedsViewController {
     func setupStyle() {
         view.backgroundColor = .white
         tableView.backgroundColor = .white
-    }
-
-    func setupContent() {
-        title = Localization.categoriesTitle
     }
 
     func setupTableView() {
