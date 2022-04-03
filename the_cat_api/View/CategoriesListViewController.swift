@@ -46,7 +46,6 @@ private extension CategoriesListViewController {
         setupViewHierarchy()
         setupLayout()
         setupStyle()
-        setupContent()
         setupNavBar()
         setupTableView()
     }
@@ -64,10 +63,6 @@ private extension CategoriesListViewController {
     func setupStyle() {
         view.backgroundColor = .white
         tableView.backgroundColor = .white
-    }
-
-    func setupContent() {
-        title = Localization.categoriesTitle
     }
 
     func setupTableView() {
