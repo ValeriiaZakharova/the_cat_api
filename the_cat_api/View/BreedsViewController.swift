@@ -103,4 +103,12 @@ extension BreedsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.set(model: breeds[indexPath.row])
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let viewController = BreedDetailsViewController()
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

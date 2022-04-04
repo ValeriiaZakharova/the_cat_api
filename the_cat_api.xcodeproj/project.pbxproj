@@ -27,6 +27,7 @@
 		CFAB833727F77EC10012907F /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB833627F77EC10012907F /* BreedsViewController.swift */; };
 		CFAB833927F783FE0012907F /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB833827F783FE0012907F /* Breed.swift */; };
 		CFAB833B27F78A180012907F /* NameOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB833A27F78A180012907F /* NameOwner.swift */; };
+		CFAB833F27F88C480012907F /* BreedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAB833E27F88C480012907F /* BreedDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		CFAB833627F77EC10012907F /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
 		CFAB833827F783FE0012907F /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		CFAB833A27F78A180012907F /* NameOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameOwner.swift; sourceTree = "<group>"; };
+		CFAB833E27F88C480012907F /* BreedDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailsViewController.swift; sourceTree = "<group>"; };
 		D3FEEE684FCEBCF3BE2001B1 /* Pods-the_cat_api.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-the_cat_api.release.xcconfig"; path = "Target Support Files/Pods-the_cat_api/Pods-the_cat_api.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,7 +147,7 @@
 			children = (
 				CF72D97A27EE248300F25170 /* NameCell.swift */,
 				CF72D9F227EE468D00F25170 /* CategoryCell.swift */,
-				CFAB833A27F78A180012907F /* NameOwner.swift */,
+				CFAB833D27F87EC90012907F /* Protocol */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -166,6 +168,7 @@
 				CF72D87C27ECE88400F25170 /* CategoriesListViewController.swift */,
 				CFAB833627F77EC10012907F /* BreedsViewController.swift */,
 				CF72D89227EDE9D500F25170 /* CategoryViewController.swift */,
+				CFAB833E27F88C480012907F /* BreedDetailsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +187,14 @@
 				CFAB833127EFB9CE0012907F /* UIViewController+spinner.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CFAB833D27F87EC90012907F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CFAB833A27F78A180012907F /* NameOwner.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +327,7 @@
 				CF72D9F127EE418400F25170 /* NetworkProvider.swift in Sources */,
 				CF72D9F327EE468D00F25170 /* CategoryCell.swift in Sources */,
 				CF72D89327EDE9D500F25170 /* CategoryViewController.swift in Sources */,
+				CFAB833F27F88C480012907F /* BreedDetailsViewController.swift in Sources */,
 				CF72D88F27EDC84800F25170 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
