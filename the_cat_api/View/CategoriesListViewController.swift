@@ -27,13 +27,14 @@ class CategoriesListViewController: UIViewController {
     }
 
     func getCategorise() {
-        categoriesService.fetchCategories { [weak self] categories, error in
+        categoriesService.fetchCategories { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
+            switch result {
+            case .success(let categories):
                 self.categories = categories
                 self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
