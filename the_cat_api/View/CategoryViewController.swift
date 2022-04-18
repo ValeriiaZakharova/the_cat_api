@@ -40,14 +40,15 @@ class CategoryViewController: UIViewController {
     func getCategory() {
         guard let category = category else { return }
         self.showSpinner(onView: self.view)
-        categoryService.fetchCategory(category_ids: category) { [weak self] cats, error in
+        categoryService.fetchCategory(categoryId: category.id) { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
+            switch result {
+            case .success(let cats):
                 self.cats = cats
                 self.collectionView.reloadData()
                 self.removeSpinner()
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

@@ -7,12 +7,18 @@
 
 import UIKit
 
+enum NetworkError: String, Error {
+    case invalidRequest
+    case invalidResponse
+    case invalidData
+}
+
 protocol CategoriesService {
-    func fetchCategories(completion: @escaping ([Category], Error?) -> Void)
+    func fetchCategories(completion: @escaping (Result<[Category], NetworkError>) -> Void)
 
-    func fetchBreeds(completion: @escaping ([Breed], Error?) -> Void)
+    func fetchBreeds(completion: @escaping (Result<[Breed], NetworkError>) -> Void)
 
-    func fetchCategory(category_ids: Category, completion: @escaping ([Cats], Error?) -> Void)
+    func fetchCategory(categoryId: Int, completion: @escaping (Result<[Cats], NetworkError>) -> Void)
 }
 
 protocol ImageService {
@@ -23,102 +29,103 @@ final class NetworkProvider: CategoriesService, ImageService {
 
     let cache = NSCache<NSString, UIImage>()
 
+    let callbackQueue: DispatchQueue
+
     private let apiKey = "98b10711-58bd-4a27-a3e3-ff975e8869fe"
     private let baseUrl = "https://api.thecatapi.com/v1/"
 
-    func fetchCategories(completion: @escaping ([Category], Error?) -> Void) {
+    init(callbackQueue: DispatchQueue = .main) {
+        self.callbackQueue = callbackQueue
+    }
+
+    func fetchCategories(completion: @escaping (Result<[Category], NetworkError>) -> Void) {
 
         guard let url = URL(string: "\(baseUrl)categories?api_key=\(apiKey)") else { return }
+
+        //wraps completion to the main queue
+        let callback: (Result<[Category], NetworkError>) -> Void = { [callbackQueue] result in
+            callbackQueue.async { completion(result) }
+        }
 
         let session = URLSession.shared
 
         session.dataTask(with: url) { data, response, error in
             if let response = response {
+                callback(.failure(.invalidResponse))
                 print(response)
             }
-
+            
             guard let data = data else {
-                DispatchQueue.main.async {
-                    completion([], error)
-                }
+                callback(.failure(.invalidResponse))
                 return
             }
 
             do {
                 let result = try JSONDecoder().decode([Category].self, from: data)
-                DispatchQueue.main.async {
-                    completion(result, nil)
-                }
+                callback(.success(result))
             } catch {
-                DispatchQueue.main.async {
-                    completion([], error)
-                }
+                callback(.failure(.invalidData))
             }
         }
         .resume()
     }
 
-    func fetchBreeds(completion: @escaping ([Breed], Error?) -> Void) {
+    func fetchBreeds(completion: @escaping (Result<[Breed], NetworkError>) -> Void) {
+        let session = URLSession.shared
 
         guard let url = URL(string: "\(baseUrl)breeds?api_key=\(apiKey)") else { return }
 
-        let session = URLSession.shared
+        let callback: (Result<[Breed], NetworkError>) -> Void = { [callbackQueue] result in
+            callbackQueue.async { completion(result) }
+        }
 
         session.dataTask(with: url) { data, response, error in
             if let response = response {
+                callback(.failure(.invalidResponse))
                 print(response)
             }
 
             guard let data = data else {
-                DispatchQueue.main.async {
-                    completion([], error)
-                }
+                callback(.failure(.invalidResponse))
                 return
             }
 
             do {
                 let result = try JSONDecoder().decode([Breed].self, from: data)
-                DispatchQueue.main.async {
-                    completion(result, nil)
-                }
+                callback(.success(result))
             } catch {
-                DispatchQueue.main.async {
-                    completion([], error)
-                }
+                callback(.failure(.invalidData))
             }
         }
         .resume()
     }
 
-    func fetchCategory(category_ids: Category, completion: @escaping ([Cats], Error?) -> Void) {
+    func fetchCategory(categoryId: Int, completion: @escaping (Result<[Cats], NetworkError>) -> Void) {
         let session = URLSession.shared
 
-        let param = category_ids.id
+        guard let url = URL(string: "\(baseUrl)images/search?api_key=\(apiKey)&category_ids=\(categoryId)&limit=100") else { return }
 
-        guard let url = URL(string: "\(baseUrl)images/search?api_key=\(apiKey)&category_ids=\(param)&limit=100") else { return }
+        let callback: (Result<[Cats], NetworkError>) -> Void = { [callbackQueue] result in
+            callbackQueue.async { completion(result) }
+        }
 
         session.dataTask(with: url) { data, response, error in
 
             if let response = response {
+                callback(.failure(.invalidResponse))
                 print(response)
             }
 
             guard let data = data else {
-                DispatchQueue.main.async {
-                    completion([], error)
-                }
+                callback(.failure(.invalidResponse))
                 return
             }
 
             do {
                 let result = try JSONDecoder().decode([Cats].self, from: data)
-                DispatchQueue.main.async {
-                    completion(result, nil)
-                }
+                callback(.success(result))
             } catch {
-                DispatchQueue.main.async {
-                    completion([], error)
-                }
+                callback(.failure(.invalidData))
             }
         }.resume()
     }

@@ -26,13 +26,15 @@ class BreedsViewController: UIViewController {
     }
 
     func getBreeds() {
-        breedsService.fetchBreeds { [weak self] breeds, error in
+        breedsService.fetchBreeds { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
+
+            switch result {
+            case .success(let breeds):
                 self.breeds = breeds
                 self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
